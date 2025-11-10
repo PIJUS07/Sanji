@@ -1,0 +1,167 @@
+/* Sanji — style.css | Swiggy-inspired food delivery design */
+:root{
+  /* Palette provided by user */
+  --tea: #D6FFB7;       /* Tea Green */
+  --mindaro: #F5FF90;   /* Mindaro */
+  --xanthous: #FFC15E;  /* Xanthous */
+  --orange: #FF9F1C;    /* Orange Peel */
+
+  --bg: #fafafa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: var(--orange);     /* primary action color */
+  --accent-2: var(--xanthous); /* secondary accent (prices) */
+  --primary: #2b2d42;
+  --radius: 12px;
+}
+
+*{box-sizing:border-box}
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:0;background:var(--bg);color:var(--primary);line-height:1.6}
+
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+/* HEADER / NAVBAR */
+.site-header{background:white;padding:0.75rem 0;box-shadow:0 2px 8px rgba(11,16,26,.06);position:relative;z-index:100}
+.site-header.sticky{position:sticky;top:0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0.5rem 0}
+.brand{font-weight:700;color:var(--primary);text-decoration:none;font-size:1.5rem;white-space:nowrap}
+.search-bar-header{flex:1;max-width:400px}
+.search-bar-header input{width:100%;padding:0.6rem 1rem;border-radius:24px;border:1px solid #e5e7eb;background:#f3f4f6;font-size:0.95rem;transition:all 0.2s}
+.search-bar-header input:focus{outline:none;background:white;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,159,28,0.1)}
+
+.main-nav{display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap}
+.main-nav a{color:var(--primary);text-decoration:none;font-size:0.95rem;font-weight:500;transition:color 0.2s}
+.main-nav a:hover{color:var(--accent)}
+.main-nav .btn{border-radius:8px;padding:0.45rem 0.75rem;border:1px solid transparent;font-size:0.9rem}
+.btn.small{padding:0.35rem 0.6rem;font-size:0.85rem}
+.btn.primary{background:var(--accent);color:white}
+.btn{display:inline-block;cursor:pointer;transition:transform 0.15s ease,box-shadow 0.15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,159,28,0.12)}
+
+/* HERO BANNER */
+.hero-banner{position:relative;height:380px;overflow:hidden;border-bottom:8px solid var(--mindaro);margin-bottom:2rem}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(43,45,66,0.4),rgba(255,159,28,0.1));z-index:2}
+.hero-content{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;height:100%;text-align:left}
+.hero-content h1{font-size:2.5rem;color:white;margin:0 0 0.5rem;font-weight:700;text-shadow:2px 2px 8px rgba(0,0,0,0.2)}
+.hero-content p{font-size:1.1rem;color:white;margin:0;text-shadow:1px 1px 4px rgba(0,0,0,0.2)}
+
+/* PROMO BANNER */
+.promo-banner{background:linear-gradient(90deg, rgba(245,255,144,0.2), rgba(214,255,183,0.1));padding:2rem 0;margin:0 0 2rem}
+.promo-banner .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.promo-box{background:white;padding:1.25rem;border-radius:12px;box-shadow:0 4px 12px rgba(11,16,26,.04);text-align:center;border-left:4px solid var(--accent)}
+.promo-tag{display:inline-block;background:var(--mindaro);color:var(--primary);font-weight:600;padding:0.25rem 0.75rem;border-radius:6px;font-size:0.8rem;margin-bottom:0.5rem}
+.promo-box h3{margin:0.5rem 0 0;font-size:1.25rem;color:var(--primary)}
+.promo-box p{margin:0.25rem 0 0;color:var(--muted);font-size:0.95rem}
+
+/* FEATURED RESTAURANTS */
+.featured-section{margin:3rem 0}
+.section-header{text-align:left;margin-bottom:2rem}
+.section-header h2{font-size:1.8rem;margin:0 0 0.5rem;color:var(--primary)}
+.subtitle-text{color:var(--muted);font-size:1rem;margin:0}
+
+.featured-restaurants{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-bottom:3rem}
+.featured-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(11,16,26,.08);transition:all 0.3s ease;cursor:pointer}
+.featured-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(11,16,26,.12)}
+
+.featured-img{position:relative;height:200px;background-size:cover;background-position:center;overflow:hidden}
+.featured-img::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.2));z-index:1}
+.offer-badge{position:absolute;top:12px;right:12px;background:var(--accent);color:white;padding:0.5rem 0.75rem;border-radius:6px;font-weight:600;font-size:0.85rem;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.rating-badge{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.7);color:white;padding:0.4rem 0.6rem;border-radius:6px;font-weight:600;font-size:0.85rem;z-index:2}
+
+.featured-info{padding:1.25rem}
+.featured-info h3{margin:0 0 0.5rem;font-size:1.1rem;color:var(--primary)}
+.featured-info .cuisine{margin:0;color:var(--muted);font-size:0.9rem}
+.delivery-info{display:flex;gap:1rem;margin-top:0.75rem;font-size:0.85rem;color:var(--muted);flex-wrap:wrap}
+.delivery-info span{display:flex;align-items:center;gap:0.25rem}
+
+/* RESTAURANTS GRID */
+.restaurants-section{padding:2rem 0;margin:2rem 0}
+.restaurants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(11,16,26,.06);transition:transform 0.18s ease,box-shadow 0.18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(255,159,28,0.08)}
+.card .media{height:160px;background-size:cover;background-position:center}
+.card .card-body{padding:1rem}
+.card h3{margin:0.1rem 0 0.5rem;font-size:1.05rem}
+.muted{color:var(--muted)}
+.menu-list{list-style:none;padding:0;margin:0}
+.menu-item{display:flex;justify-content:space-between;gap:0.5rem;padding:0.5rem 0;border-top:1px dashed rgba(11,16,26,.03);align-items:flex-start}
+.menu-item:first-child{border-top:none}
+.card .card-actions{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-top:1px solid rgba(11,16,26,.03)}
+.card .price{font-weight:700;color:var(--accent-2);display:inline-block}
+
+/* FORMS */
+.form-card{background:var(--card);padding:1.5rem;border-radius:12px;box-shadow:0 10px 30px rgba(11,16,26,.04)}
+.form-row{margin-bottom:0.75rem}
+label{display:block;margin-bottom:0.35rem;font-weight:600}
+input[type="text"],input[type="email"],input[type="password"],textarea{width:100%;padding:0.6rem 0.75rem;border-radius:8px;border:1px solid rgba(11,16,26,.06);font-family:inherit;transition:border-color 0.2s}
+input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,159,28,0.1)}
+.auth-page .centered{max-width:420px;margin:2rem auto}
+.form-feedback{color:green;margin-top:0.5rem;font-weight:500}
+
+/* CART */
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1px solid rgba(11,16,26,.04)}
+.cart-item .cart-item-info{flex:1}
+.cart-item .cart-item-actions{display:flex;gap:0.8rem;align-items:center}
+.qty-input{width:70px;padding:0.4rem;border-radius:8px;border:1px solid rgba(11,16,26,.06)}
+.cart-summary{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-top:2px solid rgba(11,16,26,.1);margin-top:1rem}
+.cart-item .price{font-weight:700;color:var(--accent-2)}
+
+/* FAQ */
+.faq-list details{background:var(--card);padding:1rem;border-radius:10px;margin-bottom:0.75rem;border:1px solid #e5e7eb}
+.faq-list summary{font-weight:600;cursor:pointer;color:var(--primary)}
+.faq-list details[open] summary{color:var(--accent)}
+.faq-list details p{margin:0.75rem 0 0;color:var(--muted);line-height:1.6}
+
+/* FOOTER */
+.site-footer{background:var(--primary);color:#fff;padding:3rem 0 1rem;margin-top:4rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem}
+.footer-col h4{margin:0 0 1rem;font-size:1.05rem;color:white}
+.footer-col p{margin:0 0 0.75rem;font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8)}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col ul li{margin-bottom:0.5rem}
+.footer-col ul li a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.95rem;transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--accent)}
+
+.social-links{display:flex;gap:1rem;margin-top:0.75rem}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;color:white;text-decoration:none;font-size:1.1rem;transition:all 0.2s;border:1px solid rgba(255,255,255,0.2)}
+.social-links a:hover{background:var(--accent);border-color:var(--accent)}
+
+.app-buttons{display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap}
+.app-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.5rem 0.75rem;border-radius:6px;cursor:pointer;font-size:0.85rem;transition:all 0.2s;font-weight:500}
+.app-btn:hover{background:var(--accent);border-color:var(--accent)}
+
+.small-text{font-size:0.85rem;opacity:0.8}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;text-align:center}
+.footer-bottom p{margin:0.25rem 0;font-size:0.9rem;opacity:0.8}
+
+/* RESPONSIVE DESIGN */
+@media (max-width:900px){
+  .header-inner{gap:1rem;flex-wrap:wrap}
+  .search-bar-header{max-width:200px}
+  .main-nav{gap:0.5rem}
+  .hero-content h1{font-size:1.8rem}
+  .hero-content p{font-size:1rem}
+  .hero-banner{height:280px}
+}
+
+@media (max-width:700px){
+  .header-inner{flex-direction:column;gap:0.75rem}
+  .search-bar-header{max-width:100%}
+  .main-nav{gap:0.3rem;flex-wrap:wrap;justify-content:center}
+  .hero-content h1{font-size:1.4rem}
+  .hero-content p{font-size:0.9rem}
+  .hero-banner{height:200px;margin-bottom:1rem}
+  .featured-restaurants{grid-template-columns:1fr}
+  .featured-img{height:150px}
+  .btn.small{padding:0.3rem 0.5rem;font-size:0.8rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:600px){
+  .container{padding:0 0.75rem}
+  .section-header h2{font-size:1.4rem}
+  .restaurants-grid{grid-template-columns:1fr}
+  .search-bar-header input{font-size:0.85rem}
+}
+
