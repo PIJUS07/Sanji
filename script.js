@@ -696,9 +696,133 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = new Date().getFullYear();
   document.querySelectorAll('[id="year"]').forEach(el => { el.textContent = year; });
 
+  // ===== MOBILE MENU TOGGLE =====
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+  
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Close menu when clicking nav links
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ===== SCROLL ANIMATIONS =====
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements with fade-in class
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
   // ===== INITIAL RENDER =====
   renderFeaturedRestaurants();
   renderRestaurants();
+
+  // ===== SCROLL TO TOP BUTTON =====
+  const scrollTopBtn = document.createElement('button');
+  scrollTopBtn.className = 'scroll-to-top';
+  scrollTopBtn.innerHTML = '↑';
+  scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+  document.body.appendChild(scrollTopBtn);
+
+  // Show/hide scroll button
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
+
+  // Scroll to top on click
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // ===== ADD TO CART TOAST NOTIFICATION =====
+  function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: ${type === 'success' ? '#10B981' : '#EF4444'};
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      z-index: 9999;
+      animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2.7s;
+      font-weight: 600;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // Add toast animation styles
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideInRight {
+      from { transform: translateX(400px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
 
   // Make functions global
   window.applyFilters = applyFilters;
@@ -706,4 +830,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.toggleMenu = toggleMenu;
   window.addToCartQuick = addToCartQuick;
   window.closeMenuModal = closeMenuModal;
+  window.showToast = showToast;
 });

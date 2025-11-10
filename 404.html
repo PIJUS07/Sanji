@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Page Not Found | Sanji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#F5FF90,#D6FFB7);min-height:100vh;display:flex;align-items:center;justify-content:center;color:#2b2d42}
+    .error-container{text-align:center;padding:2rem;max-width:600px}
+    .error-icon{font-size:8rem;margin-bottom:1rem;animation:bounce 2s infinite}
+    .error-code{font-size:6rem;font-weight:800;color:#FF9F1C;margin-bottom:1rem;text-shadow:4px 4px 0 rgba(255,159,28,0.2)}
+    .error-title{font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2b2d42}
+    .error-message{font-size:1.2rem;color:#666;margin-bottom:2rem;line-height:1.6}
+    .error-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-block;padding:1rem 2.5rem;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.1rem;transition:all 0.3s ease;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
+    .btn-primary{background:#FF9F1C;color:white}
+    .btn-primary:hover{background:#FFC15E;transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,159,28,0.4)}
+    .btn-secondary{background:white;color:#FF9F1C;border:2px solid #FF9F1C}
+    .btn-secondary:hover{background:#FF9F1C;color:white;transform:translateY(-3px)}
+    
+    @keyframes bounce{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-20px)}
+    }
+    
+    @media(max-width:600px){
+      .error-code{font-size:4rem}
+      .error-title{font-size:2rem}
+      .error-message{font-size:1rem}
+      .error-icon{font-size:5rem}
+      .error-actions{flex-direction:column}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-icon">🍕</div>
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">Oops! Page Not Found</h2>
+    <p class="error-message">
+      The page you're looking for seems to have been eaten! 
+      Don't worry, there's plenty of delicious food waiting for you on our homepage.
+    </p>
+    <div class="error-actions">
+      <a href="index.html" class="btn btn-primary">Go to Homepage</a>
+      <a href="contact.html" class="btn btn-secondary">Contact Support</a>
+    </div>
+  </div>
+
+  <script>
+    // Track 404 errors (optional analytics)
+    console.log('404 Error - Page not found:', window.location.href);
+    
+    // Auto-redirect after 10 seconds (optional)
+    // setTimeout(() => window.location.href = 'index.html', 10000);
+  </script>
+</body>
+</html>
