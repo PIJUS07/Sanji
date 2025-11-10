@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sanji Food Delivery — Order Food Online</title>
+  <title>Sanji - Order Food Online | Jaipur's Best Food Delivery</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
@@ -12,7 +12,7 @@
   <!-- HEADER / NAVBAR -->
   <header class="site-header sticky">
     <div class="container header-inner">
-      <a class="brand" href="home.html">🍕 Sanji</a>
+      <a class="brand" href="index.html">🍕 Sanji</a>
       <div class="search-bar-header">
         <input id="searchInput" type="search" placeholder="Search restaurants, dishes, cuisines..." aria-label="Search">
       </div>
@@ -66,58 +66,67 @@
         <p class="subtitle-text">Discover top-rated restaurants with amazing food</p>
       </div>
       
-      <div class="featured-restaurants">
-        <div class="featured-card">
-          <div class="featured-img" style="background-image:url('https://images.unsplash.com/photo-1604908177522-1bd2c8f2d3f6?auto=format&fit=crop&w=500&q=80')">
-            <span class="offer-badge">50% OFF</span>
-            <span class="rating-badge">⭐ 4.6</span>
-          </div>
-          <div class="featured-info">
-            <h3>Umami House</h3>
-            <p class="cuisine">Japanese • Asian • Ramen</p>
-            <div class="delivery-info">
-              <span>📍 2.5 km</span>
-              <span>⏱ 28 mins</span>
-              <span>₹200 delivery</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="featured-card">
-          <div class="featured-img" style="background-image:url('https://images.unsplash.com/photo-1604908554020-df542f9d2f2b?auto=format&fit=crop&w=500&q=80')">
-            <span class="offer-badge">30% OFF</span>
-            <span class="rating-badge">⭐ 4.5</span>
-          </div>
-          <div class="featured-info">
-            <h3>Mediterraneo</h3>
-            <p class="cuisine">Mediterranean • Middle Eastern</p>
-            <div class="delivery-info">
-              <span>📍 3.2 km</span>
-              <span>⏱ 32 mins</span>
-              <span>₹180 delivery</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="featured-card">
-          <div class="featured-img" style="background-image:url('https://images.unsplash.com/photo-1548365328-8f8e1b7a4b7a?auto=format&fit=crop&w=500&q=80')">
-            <span class="offer-badge">FREE DELIVERY</span>
-            <span class="rating-badge">⭐ 4.7</span>
-          </div>
-          <div class="featured-info">
-            <h3>Bella Pizza</h3>
-            <p class="cuisine">Italian • Pizza • Pasta</p>
-            <div class="delivery-info">
-              <span>📍 1.8 km</span>
-              <span>⏱ 25 mins</span>
-              <span>FREE</span>
-            </div>
-          </div>
-        </div>
+      <div class="featured-restaurants" id="featuredContainer">
+        <!-- Dynamically filled with top 3 restaurants -->
       </div>
     </section>
 
-   
+    <!-- FILTERS & SORTING -->
+    <section class="container filters-section">
+      <div class="filters-wrapper">
+        <div class="filter-group">
+          <label>Filter by Cuisine:</label>
+          <select id="cuisineFilter" class="filter-select">
+            <option value="">All Cuisines</option>
+            <option value="Rajasthani">Rajasthani</option>
+            <option value="North Indian">North Indian</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Italian">Italian</option>
+            <option value="Cafe">Cafe</option>
+            <option value="Desserts & Drinks">Desserts & Drinks</option>
+            <option value="Multi-Cuisine">Multi-Cuisine</option>
+            <option value="Fast Food">Fast Food</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Sort by:</label>
+          <select id="sortFilter" class="filter-select">
+            <option value="name">Alphabetical</option>
+            <option value="rating">Highest Rated</option>
+            <option value="price">Price: Low to High</option>
+            <option value="delivery">Fastest Delivery</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Rating:</label>
+          <select id="ratingFilter" class="filter-select">
+            <option value="">All Ratings</option>
+            <option value="4.7">4.7★ & Above</option>
+            <option value="4.5">4.5★ & Above</option>
+            <option value="4">4★ & Above</option>
+          </select>
+        </div>
+
+        <button class="btn-reset" onclick="resetFilters()">Reset Filters</button>
+      </div>
+    </section>
+
+    <!-- ALL RESTAURANTS GRID -->
+    <section class="container all-restaurants-section">
+      <div class="section-header">
+        <h2>All Restaurants in Jaipur</h2>
+        <p class="subtitle-text">Browse <span id="restaurantCount">10</span> restaurants</p>
+      </div>
+      
+      <div class="restaurants-grid" id="restaurantsContainer">
+        <!-- Dynamically filled with all restaurants -->
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -135,7 +144,7 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>

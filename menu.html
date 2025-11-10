@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu - Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="menu-script.js" defer></script>
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header sticky">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">🍕 Sanji</a>
+      <div class="search-bar-header">
+        <input id="searchMenuItems" type="search" placeholder="Search menu items..." aria-label="Search">
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="btn small">🛒 Cart (<span id="cartCount">0</span>)</a>
+        <a href="login.html" class="btn small">Login</a>
+        <a href="signup.html" class="btn small primary">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- RESTAURANT HEADER SECTION -->
+    <section class="menu-page-hero" id="restaurantHeader">
+      <!-- Dynamically loaded restaurant header -->
+    </section>
+
+    <!-- MENU ITEMS SECTION -->
+    <section class="container menu-page-section">
+      <div class="menu-page-header">
+        <h2>Our Menu</h2>
+        <p id="menuItemCount">Loading menu...</p>
+      </div>
+      
+      <div class="menu-page-grid" id="menuItemsGrid">
+        <!-- Dynamically loaded menu items -->
+      </div>
+    </section>
+
+    <!-- BACK TO RESTAURANTS -->
+    <section class="container back-section">
+      <a href="index.html" class="btn-back-home">
+        ← Back to All Restaurants
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>🍕 Sanji</h4>
+          <p>Your favorite food delivery platform. Get delicious food delivered to your door in minutes.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Brand</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Download App</h4>
+          <p class="small-text">Available on iOS and Android</p>
+          <div class="app-buttons">
+            <button class="app-btn">📱 iOS App</button>
+            <button class="app-btn">🤖 Android App</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Sanji Food Delivery. All rights reserved.</p>
+        <p class="small-text">Made with ❤️ for food lovers</p>
+      </div>
+    </div>
+    <center>Made by Pijus</center>
+  </footer>
+</body>
+</html>

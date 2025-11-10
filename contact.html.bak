@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html">Sanji</a>
+      <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="login.html" class="btn small">Login</a>
+        <a href="signup.html" class="btn small primary">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container contact-page">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you — questions, feedback, or partnership inquiries.</p>
+
+    <div class="contact-grid">
+      <form id="contactForm" class="form-card" novalidate>
+        <div class="form-row">
+          <label for="contactName">Name</label>
+          <input id="contactName" name="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn primary">Send Message</button>
+        </div>
+        <p id="contactFeedback" class="form-feedback" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-illustration">
+        <img src="https://images.unsplash.com/photo-1555992336-03a23c4d1f43?auto=format&fit=crop&w=700&q=80" alt="Contact illustration">
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year3"></span> Sanji Food Delivery — All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

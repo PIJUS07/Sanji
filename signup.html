@@ -3,60 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign up — Sanji Food Delivery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Sign Up - Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <style>
+    .auth-container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#D6FFB7,#F5FF90);padding:2rem}
+    .auth-box{background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1);max-width:450px;width:100%;padding:3rem}
+    .auth-header{text-align:center;margin-bottom:2rem}
+    .auth-header h1{font-size:2.5rem;color:#2b2d42;margin-bottom:0.5rem}
+    .auth-header p{color:#666}
+    .form-group{margin-bottom:1.5rem}
+    .form-group label{display:block;font-weight:600;margin-bottom:0.5rem;color:#2b2d42}
+    .form-group input{width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;transition:border 0.3s;box-sizing:border-box}
+    .form-group input:focus{outline:none;border-color:#FF9F1C}
+    .btn-auth{width:100%;background:#FF9F1C;color:white;padding:1rem;border:none;border-radius:10px;font-weight:700;font-size:1.1rem;cursor:pointer;transition:all 0.3s}
+    .btn-auth:hover{background:#FFC15E;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,159,28,0.3)}
+    .divider{text-align:center;margin:2rem 0;color:#999;position:relative}
+    .divider::before,.divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:#e0e0e0}
+    .divider::before{left:0}
+    .divider::after{right:0}
+    .social-login{display:flex;gap:1rem;margin-bottom:2rem}
+    .social-btn{flex:1;padding:0.8rem;border:2px solid #e0e0e0;background:white;border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.3s}
+    .social-btn:hover{border-color:#FF9F1C;background:#fff8f0}
+    .auth-footer{text-align:center;margin-top:2rem;color:#666}
+    .auth-footer a{color:#FF9F1C;text-decoration:none;font-weight:600}
+    .terms{font-size:0.9rem;color:#999;margin-top:1rem;text-align:center}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="home.html">Sanji</a>
-      <nav class="main-nav">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
-        <a href="login.html" class="btn small">Login</a>
-        <a href="signup.html" class="btn small primary">Sign up</a>
-      </nav>
-    </div>
-  </header>
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="auth-header">
+        <div style="font-size:3rem;margin-bottom:1rem">🍕</div>
+        <h1>Join Sanji!</h1>
+        <p>Create your account and start ordering</p>
+      </div>
 
-  <main class="container auth-page">
-    <div class="form-card centered">
-      <h2>Create Account</h2>
       <form id="signupForm" novalidate>
-        <div class="form-row">
-          <label for="signupName">Full name</label>
-          <input id="signupName" type="text" required>
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input id="signupName" type="text" placeholder="John Doe" required>
         </div>
-        <div class="form-row">
-          <label for="signupEmail">Email</label>
-          <input id="signupEmail" type="email" required>
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input id="signupEmail" type="email" placeholder="your@email.com" required>
         </div>
-        <div class="form-row">
+        <div class="form-group">
+          <label for="signupPhone">Phone Number</label>
+          <input id="signupPhone" type="tel" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="form-group">
           <label for="signupPassword">Password</label>
-          <input id="signupPassword" type="password" required minlength="6">
+          <input id="signupPassword" type="password" placeholder="At least 6 characters" required>
         </div>
-        <div class="form-row">
-          <label for="signupConfirm">Confirm password</label>
-          <input id="signupConfirm" type="password" required minlength="6">
+        <div class="form-group">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <input id="signupConfirmPassword" type="password" placeholder="Re-enter password" required>
         </div>
-        <div class="form-row">
-          <button class="btn primary" type="submit">Sign up</button>
+        <div style="margin-bottom:1.5rem">
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+            <input type="checkbox" id="agreeTerms" required style="width:auto">
+            <span style="color:#666;font-size:0.9rem">I agree to the <a href="#" style="color:#FF9F1C">Terms & Conditions</a></span>
+          </label>
         </div>
-        <p class="form-feedback" id="signupFeedback" aria-live="polite"></p>
+        <button type="submit" class="btn-auth">Create Account</button>
+        <p id="signupFeedback" style="margin-top:1rem;text-align:center;font-weight:600"></p>
       </form>
-      <p class="muted">Already have an account? <a href="login.html">Login</a></p>
-    </div>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year6"></span> Sanji Food Delivery — All rights reserved.</p>
+      <div class="divider">OR</div>
+
+      <div class="social-login">
+        <button class="social-btn">
+          <span style="color:#4285F4">G</span> Google
+        </button>
+        <button class="social-btn">
+          <span style="color:#1877F2">f</span> Facebook
+        </button>
+      </div>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+
+      <div style="text-align:center;margin-top:2rem">
+        <a href="index.html" style="color:#999;text-decoration:none">← Back to Home</a>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('signupFeedback');
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const phone = document.getElementById('signupPhone').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const confirmPassword = document.getElementById('signupConfirmPassword').value;
+      const agreeTerms = document.getElementById('agreeTerms').checked;
+
+      if (!name || !email || !phone || !password || !confirmPassword) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Please fill in all fields.';
+        return;
+      }
+
+      if (!email.includes('@')) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      if (password.length < 6) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Passwords do not match.';
+        return;
+      }
+
+      if (!agreeTerms) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Please agree to the Terms & Conditions.';
+        return;
+      }
+
+      feedback.style.color = 'green';
+      feedback.textContent = '✓ Account created successfully! Redirecting to login...';
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>

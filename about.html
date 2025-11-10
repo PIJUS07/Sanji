@@ -3,54 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About — Sanji Food Delivery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>About Us - Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <style>
+    .page-hero{position:relative;height:400px;display:flex;align-items:center;justify-content:center;color:white;overflow:hidden}
+    .page-hero .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .page-hero .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(43,45,66,0.85),rgba(255,159,28,0.75));z-index:2}
+    .page-hero .hero-content{position:relative;z-index:3;text-align:center}
+    .page-hero h1{font-size:3.5rem;margin-bottom:1rem;font-weight:800}
+    .page-hero p{font-size:1.3rem;opacity:0.95}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2rem}.page-hero h1{font-size:2.5rem}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header sticky">
     <div class="container header-inner">
-      <a class="brand" href="home.html">Sanji</a>
+      <a class="brand" href="index.html">🍕 Sanji</a>
+      <div class="search-bar-header">
+        <input id="searchInput" type="search" placeholder="Search restaurants, dishes..." aria-label="Search">
+      </div>
       <nav class="main-nav">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.html" style="color:#FF9F1C;font-weight:600">About</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="cart.html" class="btn small">🛒 Cart (<span id="cartCount">0</span>)</a>
         <a href="login.html" class="btn small">Login</a>
         <a href="signup.html" class="btn small primary">Sign up</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="about about-grid">
-      <div>
-        <h1>About Sanji Food Delivery</h1>
-        <p class="lead">Sanji Food Delivery connects food lovers with the best local restaurants and home chefs. We focus on quality, speed, and delightful customer experiences.</p>
-
-        <h2>Our Mission</h2>
-        <p>To bring delicious, diverse, and affordable meals to your doorstep with prompt delivery and top-notch customer service. We support local businesses and curate menus that excite your taste buds.</p>
-
-        <h2>Why choose Sanji?</h2>
-        <ul class="benefits">
-          <li>Curated local restaurants and unique dishes.</li>
-          <li>Fast delivery and real-time order updates.</li>
-          <li>Secure payments and great offers.</li>
-          <li>Friendly customer support.</li>
-        </ul>
+  <main>
+    <!-- About Hero -->
+    <section class="page-hero about-hero">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="About Sanji">
+      <div class="container hero-content">
+        <h1>About Sanji</h1>
+        <p>Delivering happiness, one meal at a time 🍕</p>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" class="illustration" alt="About Sanji illustration">
+    </section>
+
+    <!-- Our Story -->
+    <section class="container content-section" style="padding:4rem 2rem">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2 style="font-size:2.5rem;color:#2b2d42;margin-bottom:1.5rem">Our Story</h2>
+          <p style="font-size:1.1rem;line-height:1.8;margin-bottom:1.5rem;color:#555">Founded in 2024, Sanji started with a simple mission: to connect food lovers with the best local restaurants in Jaipur. What began as a small startup has grown into the city's most trusted food delivery platform.</p>
+          <p style="font-size:1.1rem;line-height:1.8;margin-bottom:1.5rem;color:#555">We believe that great food brings people together. That's why we've partnered with over 15 amazing restaurants, from traditional Rajasthani eateries to modern cafes and international cuisines.</p>
+          <p style="font-size:1.1rem;line-height:1.8;color:#555">Our team works tirelessly to ensure every order is delivered hot, fresh, and on time. We're not just delivering food – we're delivering experiences, memories, and happiness.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Team working" style="width:100%;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.15)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section" style="background:#f8f9fa;padding:4rem 0">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:3rem;font-size:2.5rem;color:#2b2d42">Our Values</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem">
+          <div style="background:white;padding:2.5rem;border-radius:16px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s">
+            <div style="font-size:3.5rem;margin-bottom:1rem">⚡</div>
+            <h3 style="font-size:1.5rem;margin-bottom:1rem;color:#2b2d42">Fast Delivery</h3>
+            <p style="color:#666;line-height:1.6">We guarantee delivery within 30 minutes or your order is free. Speed without compromising quality.</p>
+          </div>
+          <div style="background:white;padding:2.5rem;border-radius:16px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s">
+            <div style="font-size:3.5rem;margin-bottom:1rem">🌟</div>
+            <h3 style="font-size:1.5rem;margin-bottom:1rem;color:#2b2d42">Quality First</h3>
+            <p style="color:#666;line-height:1.6">Every restaurant partner is carefully selected and regularly monitored to maintain the highest standards.</p>
+          </div>
+          <div style="background:white;padding:2.5rem;border-radius:16px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s">
+            <div style="font-size:3.5rem;margin-bottom:1rem">💚</div>
+            <h3 style="font-size:1.5rem;margin-bottom:1rem;color:#2b2d42">Customer Care</h3>
+            <p style="color:#666;line-height:1.6">24/7 support team ready to help. Your satisfaction is our top priority, always.</p>
+          </div>
+          <div style="background:white;padding:2.5rem;border-radius:16px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s">
+            <div style="font-size:3.5rem;margin-bottom:1rem">🎯</div>
+            <h3 style="font-size:1.5rem;margin-bottom:1rem;color:#2b2d42">Innovation</h3>
+            <p style="color:#666;line-height:1.6">Constantly improving our platform with new features, better UI, and smarter delivery routes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section style="background:linear-gradient(135deg,#FF9F1C,#FFC15E);padding:4rem 0;color:white">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;text-align:center">
+          <div>
+            <h3 style="font-size:3.5rem;font-weight:800;margin-bottom:0.5rem">15+</h3>
+            <p style="font-size:1.2rem;opacity:0.95">Restaurant Partners</p>
+          </div>
+          <div>
+            <h3 style="font-size:3.5rem;font-weight:800;margin-bottom:0.5rem">50K+</h3>
+            <p style="font-size:1.2rem;opacity:0.95">Happy Customers</p>
+          </div>
+          <div>
+            <h3 style="font-size:3.5rem;font-weight:800;margin-bottom:0.5rem">100K+</h3>
+            <p style="font-size:1.2rem;opacity:0.95">Orders Delivered</p>
+          </div>
+          <div>
+            <h3 style="font-size:3.5rem;font-weight:800;margin-bottom:0.5rem">4.8★</h3>
+            <p style="font-size:1.2rem;opacity:0.95">Average Rating</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding:4rem 2rem;text-align:center">
+      <div style="background:linear-gradient(135deg,#D6FFB7,#F5FF90);padding:4rem 3rem;border-radius:20px;max-width:700px;margin:0 auto">
+        <h2 style="font-size:2.5rem;color:#2b2d42;margin-bottom:1rem">Ready to Order?</h2>
+        <p style="font-size:1.2rem;color:#555;margin-bottom:2rem">Join thousands of happy customers and order from the best restaurants in Jaipur</p>
+        <a href="index.html" class="btn primary" style="display:inline-block;background:#FF9F1C;color:white;padding:1rem 3rem;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.1rem;transition:all 0.3s;box-shadow:0 6px 20px rgba(255,159,28,0.3)">Browse Restaurants</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year2"></span> Sanji Food Delivery — All rights reserved.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>🍕 Sanji</h4>
+          <p>Your favorite food delivery platform. Get delicious food delivered to your door in minutes.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Sanji Food Delivery. All rights reserved.</p>
+        <p class="small-text">Made with ❤️ for food lovers</p>
+      </div>
     </div>
+    <center>Made by Pijus</center>
   </footer>
 </body>
 </html>

@@ -3,61 +3,233 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ — Sanji Food Delivery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>FAQ - Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <style>
+    .page-hero{position:relative;height:350px;display:flex;align-items:center;justify-content:center;color:white;overflow:hidden}
+    .page-hero .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .page-hero .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(43,45,66,0.85),rgba(255,159,28,0.75));z-index:2}
+    .page-hero .hero-content{position:relative;z-index:3;text-align:center}
+    .page-hero h1{font-size:3rem;margin-bottom:1rem;font-weight:800}
+    .faq-item{background:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:all 0.3s;cursor:pointer}
+    .faq-item:hover{box-shadow:0 4px 20px rgba(255,159,28,0.2);transform:translateY(-2px)}
+    .faq-question{display:flex;justify-content:space-between;align-items:center;font-size:1.2rem;font-weight:600;color:#2b2d42}
+    .faq-icon{font-size:1.5rem;transition:transform 0.3s;color:#FF9F1C}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease;color:#666;line-height:1.8;padding-top:0}
+    .faq-item.active .faq-answer{max-height:500px;padding-top:1rem}
+    .faq-item.active .faq-icon{transform:rotate(45deg)}
+    .faq-category{background:linear-gradient(135deg,#F5FF90,#D6FFB7);padding:1rem 2rem;border-radius:10px;margin-bottom:2rem;text-align:center}
+    .faq-category h3{color:#2b2d42;font-size:1.5rem;margin:0}
+    @media(max-width:768px){.page-hero h1{font-size:2rem}.faq-question{font-size:1.1rem}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header sticky">
     <div class="container header-inner">
-      <a class="brand" href="home.html">Sanji</a>
+      <a class="brand" href="index.html">🍕 Sanji</a>
+      <div class="search-bar-header">
+        <input id="searchInput" type="search" placeholder="Search restaurants, dishes..." aria-label="Search">
+      </div>
       <nav class="main-nav">
-        <a href="home.html">Home</a>
         <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
+        <a href="faq.html" style="color:#FF9F1C;font-weight:600">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="cart.html" class="btn small">🛒 Cart (<span id="cartCount">0</span>)</a>
         <a href="login.html" class="btn small">Login</a>
         <a href="signup.html" class="btn small primary">Sign up</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <h1>Frequently Asked Questions</h1>
-    <div class="faq-list">
-      <details>
-        <summary>How long does delivery take?</summary>
-        <p>Delivery time depends on the restaurant and your location — typically 25–45 minutes. During busy hours it may take longer.</p>
-      </details>
+  <main>
+    <!-- FAQ Hero -->
+    <section class="page-hero">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=1600&q=80" alt="FAQ">
+      <div class="container hero-content">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about Sanji</p>
+      </div>
+    </section>
 
-      <details>
-        <summary>What payment methods do you accept?</summary>
-        <p>We accept credit/debit cards, major digital wallets, and cash on delivery where available.</p>
-      </details>
+    <!-- FAQ Content -->
+    <section class="container" style="padding:4rem 2rem;max-width:900px">
+      
+      <!-- Orders & Delivery -->
+      <div class="faq-category">
+        <h3>📦 Orders & Delivery</h3>
+      </div>
 
-      <details>
-        <summary>Are there offers or discounts?</summary>
-        <p>Yes — we run periodic promotions and partner discounts. Check the homepage banners or your account offers.</p>
-      </details>
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>How do I place an order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Simply browse restaurants, select your favorite dishes, add them to cart, and proceed to checkout. You can pay online or choose cash on delivery. It's that easy!
+        </div>
+      </div>
 
-      <details>
-        <summary>What is your refund policy?</summary>
-        <p>If an order is incorrect or missing items, contact us within 24 hours and we'll resolve it with a refund or replacement on a case-by-case basis.</p>
-      </details>
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>What is the delivery time?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We deliver within 25-35 minutes depending on the restaurant and your location. Track your order in real-time through our app.
+        </div>
+      </div>
 
-      <details>
-        <summary>Can I schedule an order for later?</summary>
-        <p>Currently we support immediate orders; scheduled ordering is coming soon.</p>
-      </details>
-    </div>
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>Is there a minimum order amount?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Minimum order value varies by restaurant, typically starting from ₹100. Free delivery on orders above ₹300!
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>Can I schedule an order for later?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes! You can schedule orders up to 24 hours in advance. Just select your preferred time during checkout.
+        </div>
+      </div>
+
+      <!-- Payment & Offers -->
+      <div class="faq-category" style="margin-top:3rem">
+        <h3>💳 Payment & Offers</h3>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>What payment methods do you accept?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We accept credit/debit cards, UPI, net banking, digital wallets (Paytm, PhonePe, Google Pay), and cash on delivery.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>How do I apply a promo code?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Enter your promo code in the "Apply Coupon" field at checkout. The discount will be applied automatically to your order total.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>Is online payment safe?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Absolutely! We use industry-standard encryption and secure payment gateways. Your financial information is never stored on our servers.
+        </div>
+      </div>
+
+      <!-- Account & Support -->
+      <div class="faq-category" style="margin-top:3rem">
+        <h3>👤 Account & Support</h3>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>Do I need an account to order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          While you can browse as a guest, creating an account helps you track orders, save addresses, and unlock exclusive deals.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>How can I track my order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Once your order is confirmed, you'll receive real-time updates via SMS and email. You can also track it in the Orders section of your account.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>What if I have an issue with my order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Contact our 24/7 customer support at +91 141-1234567 or email support@sanji.com. We'll resolve any issues immediately and ensure your satisfaction.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          <span>Can I cancel or modify my order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          You can cancel or modify your order within 2 minutes of placing it. After that, please contact customer support for assistance.
+        </div>
+      </div>
+
+      <!-- Still Have Questions? -->
+      <div style="background:linear-gradient(135deg,#FF9F1C,#FFC15E);padding:3rem;border-radius:20px;text-align:center;color:white;margin-top:3rem">
+        <h2 style="font-size:2rem;margin-bottom:1rem">Still Have Questions?</h2>
+        <p style="font-size:1.1rem;margin-bottom:2rem;opacity:0.95">Our support team is here to help you 24/7</p>
+        <a href="contact.html" style="display:inline-block;background:white;color:#FF9F1C;padding:1rem 2.5rem;border-radius:30px;text-decoration:none;font-weight:700;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.2)">Contact Support</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year4"></span> Sanji Food Delivery — All rights reserved.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>🍕 Sanji</h4>
+          <p>Your favorite food delivery platform. Get delicious food delivered to your door in minutes.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Sanji Food Delivery. All rights reserved.</p>
+        <p class="small-text">Made with ❤️ for food lovers</p>
+      </div>
     </div>
+    <center>Made by Pijus</center>
   </footer>
+
+  <script>
+    function toggleFAQ(element) {
+      const wasActive = element.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+      if (!wasActive) element.classList.add('active');
+    }
+  </script>
 </body>
 </html>

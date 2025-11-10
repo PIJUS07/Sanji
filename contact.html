@@ -3,61 +3,187 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — Sanji Food Delivery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Contact Us - Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <style>
+    .page-hero{position:relative;height:350px;display:flex;align-items:center;justify-content:center;color:white;overflow:hidden}
+    .page-hero .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .page-hero .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(43,45,66,0.85),rgba(255,159,28,0.75));z-index:2}
+    .page-hero .hero-content{position:relative;z-index:3;text-align:center}
+    .page-hero h1{font-size:3rem;margin-bottom:1rem;font-weight:800}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+    .contact-card{background:white;padding:2.5rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+    .info-box{display:flex;gap:1.5rem;margin-bottom:2rem;padding:1.5rem;background:#f8f9fa;border-radius:12px}
+    .info-icon{font-size:2.5rem;flex-shrink:0}
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr}.page-hero h1{font-size:2rem}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header sticky">
     <div class="container header-inner">
-      <a class="brand" href="home.html">Sanji</a>
+      <a class="brand" href="index.html">🍕 Sanji</a>
+      <div class="search-bar-header">
+        <input id="searchInput" type="search" placeholder="Search restaurants, dishes..." aria-label="Search">
+      </div>
       <nav class="main-nav">
-        <a href="home.html">Home</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="contact.html" style="color:#FF9F1C;font-weight:600">Contact</a>
+        <a href="cart.html" class="btn small">🛒 Cart (<span id="cartCount">0</span>)</a>
         <a href="login.html" class="btn small">Login</a>
         <a href="signup.html" class="btn small primary">Sign up</a>
       </nav>
     </div>
   </header>
 
-  <main class="container contact-page">
-    <h1>Contact Us</h1>
-    <p>We'd love to hear from you — questions, feedback, or partnership inquiries.</p>
-
-    <div class="contact-grid">
-      <form id="contactForm" class="form-card" novalidate>
-        <div class="form-row">
-          <label for="contactName">Name</label>
-          <input id="contactName" name="name" type="text" required>
-        </div>
-        <div class="form-row">
-          <label for="contactEmail">Email</label>
-          <input id="contactEmail" name="email" type="email" required>
-        </div>
-        <div class="form-row">
-          <label for="contactMessage">Message</label>
-          <textarea id="contactMessage" name="message" rows="5" required></textarea>
-        </div>
-        <div class="form-row">
-          <button type="submit" class="btn primary">Send Message</button>
-        </div>
-        <p id="contactFeedback" class="form-feedback" aria-live="polite"></p>
-      </form>
-
-      <div class="contact-illustration">
-        <img src="https://images.unsplash.com/photo-1555992336-03a23c4d1f43?auto=format&fit=crop&w=700&q=80" alt="Contact illustration">
+  <main>
+    <!-- Contact Hero -->
+    <section class="page-hero">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1600&q=80" alt="Contact Us">
+      <div class="container hero-content">
+        <h1>Get In Touch</h1>
+        <p>We're here to help! Reach out anytime.</p>
       </div>
-    </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="container" style="padding:4rem 2rem">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-card">
+          <h2 style="font-size:2rem;color:#2b2d42;margin-bottom:1.5rem">Send Us a Message</h2>
+          <form id="contactForm" novalidate>
+            <div style="margin-bottom:1.5rem">
+              <label style="display:block;font-weight:600;margin-bottom:0.5rem;color:#2b2d42" for="contactName">Full Name</label>
+              <input style="width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;transition:border 0.3s" id="contactName" type="text" placeholder="Enter your name" required>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <label style="display:block;font-weight:600;margin-bottom:0.5rem;color:#2b2d42" for="contactEmail">Email Address</label>
+              <input style="width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;transition:border 0.3s" id="contactEmail" type="email" placeholder="your@email.com" required>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <label style="display:block;font-weight:600;margin-bottom:0.5rem;color:#2b2d42" for="contactSubject">Subject</label>
+              <input style="width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;transition:border 0.3s" id="contactSubject" type="text" placeholder="What is this about?" required>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <label style="display:block;font-weight:600;margin-bottom:0.5rem;color:#2b2d42" for="contactMessage">Message</label>
+              <textarea style="width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;resize:vertical;min-height:150px;transition:border 0.3s" id="contactMessage" placeholder="Tell us more..." required></textarea>
+            </div>
+            <button type="submit" class="btn primary" style="width:100%;background:#FF9F1C;color:white;padding:1rem;border:none;border-radius:8px;font-weight:700;font-size:1.1rem;cursor:pointer;transition:all 0.3s">Send Message</button>
+            <p id="contactFeedback" style="margin-top:1rem;text-align:center;font-weight:600"></p>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="contact-card" style="margin-bottom:2rem">
+            <h2 style="font-size:2rem;color:#2b2d42;margin-bottom:1.5rem">Contact Information</h2>
+            
+            <div class="info-box">
+              <div class="info-icon">📍</div>
+              <div>
+                <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#2b2d42">Address</h4>
+                <p style="color:#666">123 Food Street, MI Road<br>Jaipur, Rajasthan 302001</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <div class="info-icon">📧</div>
+              <div>
+                <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#2b2d42">Email</h4>
+                <p style="color:#666">support@sanji.com<br>partnerships@sanji.com</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <div class="info-icon">📱</div>
+              <div>
+                <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#2b2d42">Phone</h4>
+                <p style="color:#666">+91 141-1234567<br>+91 987-6543210</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <div class="info-icon">⏰</div>
+              <div>
+                <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#2b2d42">Working Hours</h4>
+                <p style="color:#666">Monday - Sunday<br>9:00 AM - 11:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card" style="background:linear-gradient(135deg,#FF9F1C,#FFC15E);color:white;text-align:center">
+            <h3 style="font-size:1.8rem;margin-bottom:1rem">Need Immediate Help?</h3>
+            <p style="margin-bottom:1.5rem;opacity:0.95">Our customer support team is available 24/7</p>
+            <a href="tel:+911411234567" style="display:inline-block;background:white;color:#FF9F1C;padding:0.9rem 2rem;border-radius:30px;text-decoration:none;font-weight:700;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.2)">Call Now: +91 141-1234567</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year3"></span> Sanji Food Delivery — All rights reserved.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>🍕 Sanji</h4>
+          <p>Your favorite food delivery platform. Get delicious food delivered to your door in minutes.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Sanji Food Delivery. All rights reserved.</p>
+        <p class="small-text">Made with ❤️ for food lovers</p>
+      </div>
     </div>
+    <center>Made by Pijus</center>
   </footer>
+
+  <script>
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('contactFeedback');
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const subject = document.getElementById('contactSubject').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Please fill in all fields.';
+        return;
+      }
+
+      if (!email.includes('@')) {
+        feedback.style.color = 'crimson';
+        feedback.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      feedback.style.color = 'green';
+      feedback.textContent = '✓ Message sent successfully! We\'ll get back to you soon.';
+      this.reset();
+    });
+  </script>
 </body>
 </html>
