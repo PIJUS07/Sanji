@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up — Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html">Sanji</a>
+      <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="login.html" class="btn small">Login</a>
+        <a href="signup.html" class="btn small primary">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-page">
+    <div class="form-card centered">
+      <h2>Create Account</h2>
+      <form id="signupForm" novalidate>
+        <div class="form-row">
+          <label for="signupName">Full name</label>
+          <input id="signupName" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="signupEmail">Email</label>
+          <input id="signupEmail" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="signupPassword">Password</label>
+          <input id="signupPassword" type="password" required minlength="6">
+        </div>
+        <div class="form-row">
+          <label for="signupConfirm">Confirm password</label>
+          <input id="signupConfirm" type="password" required minlength="6">
+        </div>
+        <div class="form-row">
+          <button class="btn primary" type="submit">Sign up</button>
+        </div>
+        <p class="form-feedback" id="signupFeedback" aria-live="polite"></p>
+      </form>
+      <p class="muted">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year6"></span> Sanji Food Delivery — All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
