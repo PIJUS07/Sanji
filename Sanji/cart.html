@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart — Sanji Food Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html">Sanji</a>
+      <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="btn small">Cart (<span id="cartCount">0</span>)</a>
+        <a href="login.html" class="btn small">Login</a>
+        <a href="signup.html" class="btn small primary">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Your Cart</h1>
+    <div id="cartRoot" class="form-card">
+      <!-- populated by script.js -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year7"></span> Sanji Food Delivery — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // small inline boot for cart page
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const root = document.getElementById('cartRoot');
+      function render(){
+        const cart = window.SanjiCart?.getCart() || [];
+        if(!cart.length){ root.innerHTML = '<p class="muted">Your cart is empty. Browse restaurants to add items.</p>'; return }
+        const rows = cart.map(i=>`
+          <div class="cart-item" data-id="${i.id}">
+            <div class="cart-item-info">
+              <strong>${i.name}</strong>
+              <div class="muted">${i.restaurant}</div>
+            </div>
+            <div class="cart-item-actions">
+              <input type="number" min="0" value="${i.qty}" class="qty-input" data-id="${i.id}">
+              <div class="price">${(i.price * i.qty).toFixed(2)}</div>
+              <button class="btn remove" data-id="${i.id}">Remove</button>
+            </div>
+          </div>
+        `).join('');
+
+        const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+        root.innerHTML = rows + `
+          <div class="cart-summary">
+            <h3>Total: $${total.toFixed(2)}</h3>
+            <div><button id="checkoutBtn" class="btn primary">Checkout (demo)</button></div>
+          </div>
+        `;
+
+        // attach handlers
+        root.querySelectorAll('.remove').forEach(b=>b.addEventListener('click', ()=>{ window.SanjiCart.removeFromCart(b.dataset.id); render(); }));
+        root.querySelectorAll('.qty-input').forEach(inp=>inp.addEventListener('change', ()=>{ const id=inp.dataset.id; const q = Number(inp.value||0); window.SanjiCart.updateQty(id,q); render(); }));
+        document.getElementById('checkoutBtn')?.addEventListener('click', ()=>{ alert('Checkout demo — no payment integrated.'); window.SanjiCart.saveCart([]); render(); });
+      }
+      render();
+    });
+  </script>
+</body>
+</html>
